@@ -1,0 +1,46 @@
+body,
+html {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: black; 
+    touch-action: none;
+}
+
+svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black; 
+    cursor: pointer;
+}
+
+
+.dragon-stretched {
+    filter: drop-shadow(0 0 8px #00ffff) drop-shadow(0 0 16px #00ffff);
+    opacity: 1;
+}
+
+.dragon-collapsed {
+    filter: drop-shadow(0 0 8px #ff00ff) drop-shadow(0 0 16px #ff00ff);
+    opacity: 1;
+}
+
+.dragon-head {
+    filter: drop-shadow(0 0 10px #ffff00) drop-shadow(0 0 20px #ffff00);
+    opacity: 1;
+}
+
+.dragon-fins {
+    filter: drop-shadow(0 0 8px #00ff00) drop-shadow(0 0 16px #00ff00);
+    opacity: 1;
+}
+
+
+use {
+    opacity: 1;
+    fill: #ffffff;
+}
