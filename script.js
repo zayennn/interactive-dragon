@@ -48,19 +48,19 @@ for (let i = 1; i < N; i++) {
 const updateDragonGlow = () => {
     let totalDistance = 0;
     for (let i = 1; i < N; i++) {
-        const dx = elems[i].x - elems[i-1].x;
-        const dy = elems[i].y - elems[i-1].y;
+        const dx = elems[i].x - elems[i - 1].x;
+        const dy = elems[i].y - elems[i - 1].y;
         totalDistance += Math.sqrt(dx * dx + dy * dy);
     }
-    
+
     const avgDistance = totalDistance / (N - 1);
-    const isStretched = avgDistance > 25; 
-    
+    const isStretched = avgDistance > 25;
+
     for (let i = 1; i < N; i++) {
         const elem = elems[i].use;
         if (elem) {
             elem.classList.remove('dragon-stretched', 'dragon-collapsed', 'dragon-head', 'dragon-fins');
-            
+
             if (i === 1) {
                 elem.classList.add('dragon-head');
             } else if (i === 8 || i === 14) {
@@ -79,7 +79,7 @@ const run = () => {
     const ay = (Math.sin(4 * frm) * rad * height) / width;
     e.x += (ax + pointer.x - e.x) / 10;
     e.y += (ay + pointer.y - e.y) / 10;
-    
+
     for (let i = 1; i < N; i++) {
         let e = elems[i];
         let ep = elems[i - 1];
@@ -90,20 +90,19 @@ const run = () => {
         e.use.setAttributeNS(
             null,
             "transform",
-            `translate(${(ep.x + e.x) / 2},${(ep.y + e.y) / 2}) rotate(${
-                (180 / Math.PI) * a
+            `translate(${(ep.x + e.x) / 2},${(ep.y + e.y) / 2}) rotate(${(180 / Math.PI) * a
             }) translate(${0},${0}) scale(${s},${s})`
         );
     }
-    
+
     updateDragonGlow();
-    
+
     if (rad < radm) rad++;
     frm += 0.003;
     if (rad > 60) {
         pointer.x += (width / 2 - pointer.x) * 0.05;
         pointer.y += (height / 2 - pointer.y) * 0.05;
     }
-}; 
+};
 
 run();
